@@ -19,7 +19,7 @@ class Message
     private int $creationTime;
     private string $messageType;
 
-    public function __construct($sender, $receiver, $messageText, $messageType)
+    public function __construct(AbstractUser $sender, AbstractUser $receiver, string $messageText, string $messageType)
     {
         $this->sender = $sender;
         $this->receiver = $receiver;

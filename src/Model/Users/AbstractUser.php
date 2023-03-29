@@ -15,8 +15,13 @@ abstract class AbstractUser
 
     private string $defaultProfilePic = '/images/default-profile-pic.jpg';
 
-    public function __construct($id, $first_name, $last_name, $email, $profile_photo = '')
-    {
+    public function __construct(
+        int $id,
+        string $first_name,
+        string $last_name,
+        string $email,
+        string $profile_photo = ''
+    ) {
         $this->userId = $id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -24,11 +29,12 @@ abstract class AbstractUser
         $this->setProfilePicture($profile_photo);
     }
 
+
     /**
-     * @param $profile_photo
-     * @return mixed|string
+     * Set profile picture as supplied or revert to system default
+     * @param string $profile_photo
      */
-    public function setProfilePicture(string $profile_photo)
+    public function setProfilePicture(string $profile_photo): void
     {
         $this->profile_photo = $profile_photo ?: $this->defaultProfilePic;
     }
