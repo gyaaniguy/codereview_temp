@@ -5,6 +5,7 @@ namespace Gyaaniguy\Upworktest\Traits;
 trait SalutationTrait
 {
     protected string $salutation = '';
+
     public function getSalutation(): string
     {
         return $this->salutation;

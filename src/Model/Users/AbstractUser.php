@@ -2,6 +2,7 @@
 
 namespace Gyaaniguy\Upworktest\Model\Users;
 
+use Exception;
 use Gyaaniguy\Upworktest\Helpers\Validation;
 
 abstract class AbstractUser
@@ -29,7 +30,7 @@ abstract class AbstractUser
      */
     public function setProfilePicture(string $profile_photo)
     {
-        $this->profile_photo =  $profile_photo ?: $this->defaultProfilePic;
+        $this->profile_photo = $profile_photo ?: $this->defaultProfilePic;
     }
 
     public function getFullName(): string
@@ -53,6 +54,18 @@ abstract class AbstractUser
         return $this->userId;
     }
 
+    /**
+     * @throws Exception
+     */
+    public function save(): bool
+    {
+        if (!$this->validateUser()) {
+            throw new Exception("Could not validate User");
+        }
+        // Proceed to save to DB
+        return true;
+    }
+
     public function validateUser(): bool
     {
         if (!Validation::hasJpg($this->getProfilePhoto())) {
@@ -70,17 +83,5 @@ abstract class AbstractUser
     public function getProfilePhoto(): string
     {
         return $this->profile_photo;
-    }
-
-    /**
-     * @throws \Exception
-     */
-    public function save(): bool
-    {
-        if (!$this->validateUser()) {
-            throw new \Exception("Could not validate User");
-        }
-        // Proceed to save to DB
-        return true;
     }
 }

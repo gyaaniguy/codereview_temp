@@ -22,7 +22,7 @@ final class UserTest extends TestCase
         $this->assertEquals($defaultProfilePic, $user->getProfilePhoto());
         $this->assertEquals(1, $user->getUserId());
         $this->assertTrue($user->save());
- 
+
         //set bad profile photo
         $user->setProfilePicture('not_a_image.txt');
         try {
@@ -31,7 +31,6 @@ final class UserTest extends TestCase
         } catch (Exception $e) {
             self::assertStringContainsStringIgnoringCase('Could not validate User', $e->getMessage());
         }
-        
     }
 
     public function testTeacher()
@@ -42,7 +41,7 @@ final class UserTest extends TestCase
         $this->assertInstanceOf(Teacher::class, $user);
         $this->assertInstanceOf(AbstractUser::class, $user);
         $this->assertInstanceOf(AbstractGuardian::class, $user); // Might be overkill ?
-        
+
         $this->assertEquals('Mr. Teacher Jain', $user->getFullName());
         $this->assertEquals($email, $user->getEmail());
     }
