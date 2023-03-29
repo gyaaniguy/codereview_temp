@@ -41,8 +41,20 @@ final class UserTest extends TestCase
         $this->assertInstanceOf(Teacher::class, $user);
         $this->assertInstanceOf(AbstractUser::class, $user);
         $this->assertInstanceOf(AbstractGuardian::class, $user); // Might be overkill ?
-
+        // Test saltuation
         $this->assertEquals('Mr. Teacher Jain', $user->getFullName());
         $this->assertEquals($email, $user->getEmail());
+    }
+
+    public function testBadEmail()
+    {
+        $email = 'teacher.jain';
+        $user = new Teacher(2, 'Teacher', 'Jain', $email, '');
+        try {
+            $user->save();
+            self::fail("Should not save bad email");
+        } catch (Exception $e) {
+            self::assertStringContainsStringIgnoringCase('Could not validate User', $e->getMessage());
+        }
     }
 }
