@@ -1,0 +1,19 @@
+{
+    "name": "gyaaniguy/upworktest",
+    "description": "Test regarding messaging app",
+    "type": "projject",
+    "require": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gyaaniguy\\Upworktest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nikhil Jain",
+            "email": "nik.jain@gmail.com"
+        }
+    ]
+}

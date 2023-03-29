@@ -1,0 +1,16 @@
+# Ignore .idea directory
+.idea/
+
+# Ignore PHPUnit files
+.phpunit*
+
+# Ignore project files
+.DS_Store
+.env
+.env.*
+.env.local
+.env.local.php
+*.log
+*.err
+*.out
+Thumbs.db
