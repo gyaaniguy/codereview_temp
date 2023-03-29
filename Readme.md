@@ -13,7 +13,13 @@ Code Style:
 1. composer install
 2. phpunit tests/*
 
-## Code Style
+## Code Structure
 
-
+Users
+    -> AbstractUser
+        -> Student
+        -> AbstractGuardian
+            -> Teacher
+            -> Parent
+Message
 

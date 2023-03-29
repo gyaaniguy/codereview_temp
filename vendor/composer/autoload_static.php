@@ -46,6 +46,16 @@ class ComposerStaticInit7b88768c2ccf58d431631fef4a393f9e
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'G' => 
+        array (
+            'Gyaaniguy\\' => 
+            array (
+                0 => __DIR__ . '/../..' . '/tests',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
@@ -682,6 +692,7 @@ class ComposerStaticInit7b88768c2ccf58d431631fef4a393f9e
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit7b88768c2ccf58d431631fef4a393f9e::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit7b88768c2ccf58d431631fef4a393f9e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7b88768c2ccf58d431631fef4a393f9e::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit7b88768c2ccf58d431631fef4a393f9e::$classMap;
 
         }, null, ClassLoader::class);

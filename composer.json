@@ -2,12 +2,15 @@
     "name": "gyaaniguy/upworktest",
     "description": "Test regarding messaging app",
     "type": "projject",
-    "require": {
+    "require-dev": {
         "phpunit/phpunit": "^9.6"
     },
     "autoload": {
         "psr-4": {
             "Gyaaniguy\\Upworktest\\": "src/"
+        },
+        "psr-0": {
+            "Gyaaniguy\\": "tests"
         }
     },
     "authors": [
